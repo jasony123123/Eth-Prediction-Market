@@ -249,7 +249,6 @@ contract Oracle1 {
         require(inputs[0] == 1, "First reporter did not contribute");
         require(inputs[1] == 1, "Second reporter did not contribute");
         require(inputs[2] == 1, "Third reporter did not contribute");
-        uint  modeValue;
         uint[] memory count = new uint[](NUM_OUTCOMES); 
         uint number; 
         uint maxIndex = 0;
@@ -261,12 +260,7 @@ contract Oracle1 {
                 maxIndex = number;
             }
         }
-        for (uint i = 0; i < count.length; i++) {
-            if (count[i] == maxIndex) {
-                modeValue=count[i];
-                break;
-            }
-        }
-        return modeValue;
+        
+        return maxIndex;
     }       
 }
